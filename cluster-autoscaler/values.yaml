@@ -1,0 +1,10 @@
+cluster-autoscaler:
+  rbac:
+    create: true
+  sslCertPath: "/etc/ssl/certs/ca-bundle.crt"
+  cloudProvider: aws
+  awsRegion: "eu-west-2"
+
+  autoDiscovery:
+    clusterName: XXXX
+    enabled: true
