@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubernetes-dashboard
+  namespace: argocd
+spec:
+  destination:
+    namespace: kube-system
+    server: https://kubernetes.default.svc
+
+  project: default
+
+  source:
+    path: system/kubernetes-dashboard
+    repoURL: XXX
+    targetRevision: HEAD
+
+    helm:
+      valueFiles:
+      - values.yaml
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
